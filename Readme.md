@@ -110,9 +110,9 @@ classDiagram
     }
     class BookRepository {
       - Set<Book> books
-      - Map<String, List<Book>> indexByAuthor
-      - Map<String, List<Book>> indexByTitle
-      - Map<String, Book> indexByISBN
+      - Map~String, List~Book~~ indexByAuthor
+      - Map~String, List~Book~~ indexByTitle
+      - Map~String, Book~ indexByISBN
       + Singleton instance
     }
     LibraryRepository <|.. BookLibraryRepository
@@ -125,12 +125,12 @@ classDiagram
 
     class Counter {
       - static Inventory inventory
-      - static Set<Patron> patrons
+      - static Set~Patron~ patrons
     }
 
     class Patron {
       - String name
-      - TreeSet<BorrowingHistory> history
+      - TreeSet~BorrowingHistory~ history
       + register()
       + searchBook()
       + borrowBook()
@@ -140,10 +140,12 @@ classDiagram
     class BorrowingHistory {
       - Book book
       - Date date
-      - Action {BORROWED, RETURNED}
+      - String action  // BORROWED or RETURNED
     }
 
     Inventory *-- BookRepository
     Counter *-- Inventory
     Counter o-- Patron
     Patron o-- BorrowingHistory
+    
+```
