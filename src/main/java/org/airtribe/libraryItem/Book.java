@@ -71,7 +71,7 @@ public class Book extends LibraryItem {
         System.out.println("Book ID: "+this.itemId);
         System.out.println("Title: "+this.title.toUpperCase());
         System.out.println("Author: "+this.author.toUpperCase());
-        System.out.println("Author: "+this.ISBN.toUpperCase());
+        System.out.println("ISBN: "+this.ISBN.toUpperCase());
         System.out.println("Publication Year: "+this.publicationYear);
         System.out.println("Is Borrowed: "+this.isBorrowed);
         if(this.isBorrowed){

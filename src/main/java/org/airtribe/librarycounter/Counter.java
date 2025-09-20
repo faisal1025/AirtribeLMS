@@ -10,18 +10,12 @@ import org.airtribe.patron.Patron;
 import java.util.List;
 
 public class Counter {
-    private static Counter instance;
     private final String counterId;
-    private final Inventory inventory;
-    private Counter() {
+    private static final Inventory inventory =
+            new Inventory(BookRepository.getInstance());
+
+    public Counter() {
         this.counterId = GenerateCounterId.generateCounterId();
-        this.inventory = new Inventory(BookRepository.getInstance());
-    }
-    public synchronized static Counter getInstance(){
-        if(instance == null){
-            instance = new Counter();
-        }
-        return instance;
     }
 
     public String getCounterId() {

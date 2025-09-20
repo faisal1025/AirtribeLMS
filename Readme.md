@@ -91,13 +91,13 @@ classDiagram
     class LibraryItem {
       <<abstract>>
       - String id
+      - double price
+    }
+    class Book {
       - String title
       - String author
       - String ISBN
-    }
-    class Book {
       - int publicationYear
-      - double price
       + Builder pattern
     }
     LibraryItem <|-- Book
