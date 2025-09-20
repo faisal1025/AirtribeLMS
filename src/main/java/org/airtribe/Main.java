@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-   private final static Counter counter = Counter.getInstance();
+   private final static Counter counter = new Counter();
    private static Patron patron;
    static Scanner scanner = new Scanner(System.in);
    public static void registerNewUser() {
